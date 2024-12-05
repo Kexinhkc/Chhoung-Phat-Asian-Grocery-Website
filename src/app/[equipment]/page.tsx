@@ -5,6 +5,10 @@ import Grid from "@mui/material/Grid2";
 import ArrowBack from "@mui/icons-material/ArrowBackIos";
 import Link from "next/link";
 import ShowPhoneNumber from "@/app/components/ShowPhoneNumber";
+import Shield from '@mui/icons-material/ShieldOutlined';
+import EasyClean from '@mui/icons-material/AutoAwesomeOutlined';
+import Portable from '@mui/icons-material/WorkOutlineOutlined';
+
 type Props = Promise<{
   equipment: string
 }>
@@ -19,7 +23,20 @@ const equipmentList = [
     Dimension: "1000 x 500 x 500",
     Power: "240V",
     Price: "$1500/day",
-    Feature: ["Stainless Steel", "Easy to Clean", "Portable"],
+    Feature: [
+      {
+      text:"Stainless Steel",
+      icon: <Shield />
+      }, 
+      {
+      text:"Easy to Clean",
+      icon:<EasyClean />  
+      }, 
+      {
+      text:"Portable",
+      icon: <Portable />
+      }
+    ],
   },
   {
     Name: "Food Warmer",
@@ -29,7 +46,20 @@ const equipmentList = [
     Dimension: "500 x 500 x 500",
     Power: "240V",
     Price: "$500/day",
-    Feature: ["Stainless Steel", "Easy to Clean", "Portable"],
+    Feature: [
+      {
+        text: "Stainless Steel",
+        icon: <Shield />
+      },
+      {
+        text: "Easy to Clean",
+        icon: <EasyClean />
+      },
+      {
+        text: "Portable",
+        icon: <Portable />
+      }
+    ],
   },
 ];
 
@@ -58,6 +88,7 @@ export default async function Equipment({ params }: {params: Props}) {
           alignItems: "center",
           mt: 3,
           mx: 4,
+          pb:5
         }}
       >
         <Box
@@ -93,7 +124,7 @@ export default async function Equipment({ params }: {params: Props}) {
           </Typography>
         </Box>
 
-        <Box sx={{ position: "relative", my: 2 }}>
+        <Box sx={{ position: "relative", my: 4 }}>
           <Image
             src={item.Image}
             width={300}
@@ -117,9 +148,11 @@ export default async function Equipment({ params }: {params: Props}) {
                 }}
               >
                 <Typography variant="h4">{key}</Typography>
-                <Typography variant="body1" sx={{ color: "primary.main" }}>
-                  {value}
-                </Typography>
+                {typeof value === "string" && (
+                  <Typography variant="body1" sx={{ color: "primary.main" }}>
+                    {value}
+                  </Typography>
+                )}
               </Box>
             );
           } else {
@@ -127,32 +160,36 @@ export default async function Equipment({ params }: {params: Props}) {
           }
         })}
 
-        <Typography variant="h4" sx={{ mb: 1 }}>
+        <Typography variant="h4" sx={{ mb: 2 }}>
           Feature
         </Typography>
 
         <Grid container spacing={2} sx={{ mb: 3 }}>
           {item.Feature.map((feature) => (
             // console.log(feature),
-            <Grid size={6} key={feature}>
+            <Grid size={6} key={feature.text}>
               <Typography
+              id='typo'
                 variant="body1"
                 sx={{
                   color: "primary.main",
-                  py: 1,
+                  py: 0,
                   px: 1,
                   display: "flex",
-                  justifyContent: "center",
-                  border: "2px solid",
-                  borderRadius: 10,
-                  borderColor: "primary.main",
+                  justifyContent: "start",
+                  gap:0.5
                 }}
               >
-                {feature}
+                {feature.icon} {feature.text}
               </Typography>
             </Grid>
           ))}
         </Grid>
+
+        <Box>
+            
+         
+        </Box>
 
         <ShowPhoneNumber />
       </Box>
