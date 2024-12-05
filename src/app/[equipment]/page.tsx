@@ -5,6 +5,10 @@ import Grid from "@mui/material/Grid2";
 import ArrowBack from "@mui/icons-material/ArrowBackIos";
 import Link from "next/link";
 import ShowPhoneNumber from "@/app/components/ShowPhoneNumber";
+type Props = Promise<{
+  equipment: string
+}>
+
 
 const equipmentList = [
   {
@@ -31,11 +35,7 @@ const equipmentList = [
 
 // const equipmentHeadings = ["Brand", "Dimensions", "Power", "Price", "Feature"];
 
-export default async function Equipment({
-  params,
-}: {
-  params: { equipment: string };
-}) {
+export default async function Equipment({ params }: {params: Props}) {
   const { equipment } = await params;
 
   const item = equipmentList.find(
