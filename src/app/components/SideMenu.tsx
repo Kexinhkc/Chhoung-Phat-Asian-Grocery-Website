@@ -18,7 +18,6 @@ import BuildIcon from "@mui/icons-material/Build";
 import MapIcon from "@mui/icons-material/Map";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import CloseIcon from "@mui/icons-material/Close";
-import Image from "next/image";
 
 const menuItems = [
   {

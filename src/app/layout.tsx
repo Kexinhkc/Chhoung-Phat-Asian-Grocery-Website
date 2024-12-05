@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import theme from "./theme";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import StickyHeader from "./components/StickyHeader";
 
 export const metadata: Metadata = {
   title: "Chhoung Phat Asian Grocery",

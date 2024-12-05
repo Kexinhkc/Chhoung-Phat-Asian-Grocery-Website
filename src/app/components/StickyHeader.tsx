@@ -5,10 +5,8 @@ import {
     Toolbar,
     Typography,
     Container,
-    useScrollTrigger,
     Slide,
   } from '@mui/material';
-  import Menu from '@mui/icons-material/Menu';
 import SideMenu from './SideMenu';
 
 //Function to hide the header on scroll

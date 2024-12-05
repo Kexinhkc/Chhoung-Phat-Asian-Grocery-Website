@@ -17,14 +17,14 @@ const notoSans = Noto_Sans({
   weight: ['400', '500','600', '700'],
 });
 
-const lexend = Lexend({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500', '700'],
-});
+// const lexend = Lexend({
+//   subsets: ['latin'],
+//   display: 'swap',
+//   weight: ['400', '500', '700'],
+// });
 
 // Theme configuration
-let theme = createTheme({
+const theme = createTheme({
   typography: {
     h1: {
       fontFamily: leagueSpartan.style.fontFamily,

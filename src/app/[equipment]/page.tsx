@@ -1,4 +1,4 @@
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Grid from "@mui/material/Grid2";
@@ -29,7 +29,7 @@ const equipmentList = [
   },
 ];
 
-const equipmentHeadings = ["Brand", "Dimensions", "Power", "Price", "Feature"];
+// const equipmentHeadings = ["Brand", "Dimensions", "Power", "Price", "Feature"];
 
 export default async function Equipment({
   params,
