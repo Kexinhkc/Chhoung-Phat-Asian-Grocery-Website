@@ -1,7 +1,7 @@
 'use client';
 
 import { createTheme } from '@mui/material/styles';
-import { League_Spartan, Noto_Sans, Lexend } from 'next/font/google';
+import { League_Spartan, Noto_Sans} from 'next/font/google';
 
 
 // Font configurations

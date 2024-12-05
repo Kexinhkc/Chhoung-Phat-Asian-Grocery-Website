@@ -132,7 +132,7 @@ export default async function Equipment({
         </Typography>
 
         <Grid container spacing={2} sx={{ mb: 3 }}>
-          {item.Feature.map((feature, index) => (
+          {item.Feature.map((feature) => (
             // console.log(feature),
             <Grid size={6} key={feature}>
               <Typography
