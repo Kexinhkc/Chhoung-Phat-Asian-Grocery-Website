@@ -9,7 +9,7 @@ const GoogleMap = () => {
       component="iframe"
       sx={{
         width: '100%',
-        height: '250px',
+        height: {xs:'250px',lg:'400px'},
         border: 0,
         borderRadius: 1
       }}

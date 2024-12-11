@@ -11,7 +11,6 @@ export const ScrollStyles = (
         //show scroll bar and allow vertical scrolling when content height > 100%vh
         overflowY: "scroll",
         //create a "ruler with notches" using different sections. y means snap points work on vertical axis, mandatory means always snap to the nearest section
-        // scrollSnapType:'y mandatory',
         scrollSnapType: "y mandatory", // Change from 'mandatory' to 'proximity'
       },
       ".scroll-section": {

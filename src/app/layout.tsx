@@ -3,6 +3,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import theme from "./theme";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import BottomBurger from "./components/BottomBurger";
 
 export const metadata: Metadata = {
   title: "Chhoung Phat Asian Grocery",
@@ -20,7 +21,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            {/* <StickyHeader /> */}
+            <BottomBurger />
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>

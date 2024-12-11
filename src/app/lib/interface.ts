@@ -15,3 +15,9 @@ export interface Equipment {
 export interface EquipmentProps {
     equipment: Equipment;
 }
+
+export interface SideMenuProps {
+    open: boolean;
+    toggle: (isOpen: boolean) => void;  // Function that takes a boolean and returns void
+  }
+  
