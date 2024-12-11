@@ -1,12 +1,9 @@
 "use client";
-import { useState } from "react";
-import { Box, Button, Collapse, Typography, Paper } from "@mui/material";
+import { Box, Button } from "@mui/material";
 // import PhoneIcon from "@mui/icons-material/LocalPhone";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
 
 export default function ShowPhoneNumber() {
-  const [expanded, setExpanded] = useState(false);
 
   return (
     <>
