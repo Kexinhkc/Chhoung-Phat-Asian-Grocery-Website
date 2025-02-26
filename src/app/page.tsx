@@ -262,7 +262,7 @@ export default function Page() {
                       We have everything you need to make your favourite Asian
                       dishes, plus convenient ready-to-eat options for those
                       busy days. As your ultimate one-stop Asian grocery
-                      destination, we're here to bring authentic Asian flavours
+                      destination, we&apos;re here to bring authentic Asian flavours
                       to your kitchen.
                     </Typography>
 
@@ -321,7 +321,7 @@ export default function Page() {
             <Box sx={{ px: { xs: 0, md: 15 }, mt: { xs: 6 } }}>
               <Typography variant="h4" sx={{ color: "primary.main" }}>
                 We offer an extensive range of fresh produce, meats, seafood and
-                snacks that you won't easily find in your local supermarkets.
+                snacks that you won&apos;t easily find in your local supermarkets.
               </Typography>
             </Box>
 
