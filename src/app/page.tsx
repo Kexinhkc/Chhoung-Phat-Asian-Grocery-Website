@@ -6,7 +6,7 @@ import { ScrollStyles } from "./styles/ScrollStyles";
 import GoogleMap from "./components/GoogleMap";
 // import Footer from "./components/Footer";
 import ContactInfo from "./components/ContactInfo";
-import AnimatedText from "./components/AnimatedUnderline";
+// import AnimatedText from "./components/AnimatedUnderline";
 
 const groceryImages = [
   {
