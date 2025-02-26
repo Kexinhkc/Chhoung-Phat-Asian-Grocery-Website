@@ -4,7 +4,7 @@ import Image from "next/image";
 import SideMenu from "./components/HeroBurger";
 import { ScrollStyles } from "./styles/ScrollStyles";
 import GoogleMap from "./components/GoogleMap";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import ContactInfo from "./components/ContactInfo";
 import AnimatedText from "./components/AnimatedUnderline";
 

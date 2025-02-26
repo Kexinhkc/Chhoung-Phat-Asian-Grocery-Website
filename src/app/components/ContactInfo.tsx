@@ -2,13 +2,11 @@
 import { Box, Typography } from "@mui/material";
 import Icons from "./Icons";
 import OpenIcon from "@mui/icons-material/Schedule";
-import { useTheme } from "@mui/material/styles";
 import Grid from "@mui/material/Grid2";
 import StoreIcon from "@mui/icons-material/Store";
 import PhoneIcon from "@mui/icons-material/Phone";
 
 export default function ContactInfo() {
-  const theme = useTheme();
   return (
     <>
       {/* 1199 - 1354px */}
