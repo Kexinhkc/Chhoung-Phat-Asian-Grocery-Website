@@ -1,5 +1,8 @@
-export interface Equipment {
-   
+import { SvgIconComponent } from "@mui/icons-material";
+import { TypographyProps } from "@mui/material/Typography";
+
+
+export interface Equipment { 
    
         name: string;
         image: string;
@@ -19,5 +22,17 @@ export interface EquipmentProps {
 export interface SideMenuProps {
     open: boolean;
     toggle: (isOpen: boolean) => void;  // Function that takes a boolean and returns void
+  }
+
+
+export interface CustomIconProps {
+    icon: SvgIconComponent;
+  }
+
+export interface AnimatedTextProps {
+    text: string;
+    variant: TypographyProps['variant'];
+    lineColor?: string;
+    fontWeight?: number | string; 
   }
   

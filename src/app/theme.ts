@@ -23,6 +23,18 @@ const notoSans = Noto_Sans({
 //   weight: ['400', '500', '700'],
 // });
 
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    smalllg: true; // Add custom breakpoint
+    xl: true;
+    xxl: true;
+  }
+}
+
 // Theme configuration
 const theme = createTheme({
   typography: {
@@ -39,13 +51,13 @@ const theme = createTheme({
     },
     h3: { fontFamily: leagueSpartan.style.fontFamily,
       fontWeight: 600,
-      color: '#762620',
+      color: '#a6372a',
       
     },
 
     h4: { fontFamily: leagueSpartan.style.fontFamily,
-      fontWeight: 550,
-      color: '#762620',
+      fontWeight: 450,
+      color: '#a6372a',
       fontSize: '1.5rem',},
 
     body1: {
@@ -56,17 +68,29 @@ const theme = createTheme({
     },
     body2: {
       fontFamily: notoSans.style.fontFamily,
-      fontWeight: 400,
+      fontWeight: 450,
       color: '#000',
       
     },
   },
   palette: {
     primary: {
-      main: '#762620',
+      main: '#a6372a',
       // Generated lighter/darker shades
       light: '#9e332c',
       dark: '#521a16',
+    },
+  },
+
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      smalllg:1281,
+      lg: 1355,
+      xl: 1536,
+      xxl: 1920,
     },
   },
 });
@@ -115,16 +139,38 @@ theme.typography.h3 = {
     fontSize: '2rem',
   },
   [theme.breakpoints.only('xs')]: {
+    fontSize: '1.875rem',
+  },
+};
+
+theme.typography.h4 = {
+  ...theme.typography.h4,
+  [theme.breakpoints.up('xxl')]: {
+    fontSize: '1.875rem',
+  },
+  [theme.breakpoints.only('lg')]: {
     fontSize: '1.75rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1.5rem',
+  },
+  [theme.breakpoints.only('sm')]: {
+    fontSize: '1.40rem',
+  },
+  [theme.breakpoints.only('xs')]: {
+    fontSize: '1.25rem',
   },
 };
 
 theme.typography.body1 = {
   ...theme.typography.body1,
-  [theme.breakpoints.up('lg')]: {
-    fontSize: '1.25rem',
+  [theme.breakpoints.up('xxl')]: {
+    fontSize: '1.5rem',
   },
-  [theme.breakpoints.only('md')]: {
+  [theme.breakpoints.only('lg')]: {
+    fontSize: '1.375rem',
+  },
+  [theme.breakpoints.up('md')]: {
     fontSize: '1.25rem',
   },
   [theme.breakpoints.only('sm')]: {
@@ -137,7 +183,10 @@ theme.typography.body1 = {
 
 theme.typography.body2 = {
   ...theme.typography.body2,
-  [theme.breakpoints.up('lg')]: {
+  [theme.breakpoints.only('xxl')]: {
+    fontSize: '1.25rem',
+  },
+  [theme.breakpoints.only('lg')]: {
     fontSize: '1.125rem',
   },
   [theme.breakpoints.only('md')]: {
@@ -147,7 +196,7 @@ theme.typography.body2 = {
     fontSize: '1rem',
   },
   [theme.breakpoints.only('xs')]: {
-    fontSize: '0.875rem',
+    fontSize: '1rem',
   },
 };
 export default theme;

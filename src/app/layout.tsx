@@ -23,6 +23,7 @@ export default function RootLayout({
             <CssBaseline />
             <BottomBurger />
             {children}
+            
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

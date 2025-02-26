@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   // compiler: {
   //   emotion: true
   // }
+  // compiler: {
+  //   styledComponents: true,
+  // },
 };
 
 export default nextConfig;

@@ -1,18 +1,17 @@
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Stack } from "@mui/material";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Grid from "@mui/material/Grid2";
 import ArrowBack from "@mui/icons-material/ArrowBackIos";
 import Link from "next/link";
 import ShowPhoneNumber from "@/app/components/ShowPhoneNumber";
-import Shield from '@mui/icons-material/ShieldOutlined';
-import EasyClean from '@mui/icons-material/AutoAwesomeOutlined';
-import Portable from '@mui/icons-material/WorkOutlineOutlined';
+import Shield from "@mui/icons-material/ShieldOutlined";
+import EasyClean from "@mui/icons-material/AutoAwesomeOutlined";
+import Portable from "@mui/icons-material/WorkOutlineOutlined";
 
 type Props = Promise<{
-  equipment: string
-}>
-
+  equipment: string;
+}>;
 
 const equipmentList = [
   {
@@ -25,17 +24,17 @@ const equipmentList = [
     Price: "$1500/day",
     Feature: [
       {
-      text:"Stainless Steel",
-      icon: <Shield />
-      }, 
+        text: "Stainless Steel",
+        icon: <Shield />,
+      },
       {
-      text:"Easy to Clean",
-      icon:<EasyClean />  
-      }, 
+        text: "Easy to Clean",
+        icon: <EasyClean />,
+      },
       {
-      text:"Portable",
-      icon: <Portable />
-      }
+        text: "Portable",
+        icon: <Portable />,
+      },
     ],
   },
   {
@@ -49,23 +48,23 @@ const equipmentList = [
     Feature: [
       {
         text: "Stainless Steel",
-        icon: <Shield />
+        icon: <Shield />,
       },
       {
         text: "Easy to Clean",
-        icon: <EasyClean />
+        icon: <EasyClean />,
       },
       {
         text: "Portable",
-        icon: <Portable />
-      }
+        icon: <Portable />,
+      },
     ],
   },
 ];
 
 // const equipmentHeadings = ["Brand", "Dimensions", "Power", "Price", "Feature"];
 
-export default async function Equipment({ params }: {params: Props}) {
+export default async function Equipment({ params }: { params: Props }) {
   const { equipment } = await params;
 
   const item = equipmentList.find(
@@ -84,11 +83,13 @@ export default async function Equipment({ params }: {params: Props}) {
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          // justifyContent: "center",
           alignItems: "center",
-          mt: 3,
-          mx: 4,
-          pb:5
+          pt: 3,
+          px: { xs: 4, sm:10, md:8, smalllg: 20 },
+          pb: 5,
+          backgroundColor: "#f5f0ce",
+          minHeight: "100vh",
         }}
       >
         <Box
@@ -120,78 +121,148 @@ export default async function Equipment({ params }: {params: Props}) {
               width: "100%",
             }}
           >
-            {item.Name}
+            {item.Description}
           </Typography>
         </Box>
 
-        <Box sx={{ position: "relative", my: 4 }}>
-          <Image
-            src={item.Image}
-            width={300}
-            height={300}
-            alt={`image of ${item.Description}`}
-            style={{ objectFit: "contain" }}
-          />
-        </Box>
-
-        {Object.entries(item).map(([key, value]) => {
-          if (key !== "Feature" && key !== "Image" && key !== "Name") {
-            return (
-              <Box
-                key={key}
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  mb: 3,
-                }}
-              >
-                <Typography variant="h4">{key}</Typography>
-                {typeof value === "string" && (
-                  <Typography variant="body1" sx={{ color: "primary.main" }}>
-                    {value}
-                  </Typography>
-                )}
-              </Box>
-            );
-          } else {
-            return null;
-          }
-        })}
-
-        <Typography variant="h4" sx={{ mb: 2 }}>
-          Feature
-        </Typography>
-
-        <Grid container spacing={2} sx={{ mb: 3 }}>
-          {item.Feature.map((feature) => (
-            // console.log(feature),
-            <Grid size={6} key={feature.text}>
-              <Typography
-              id='typo'
-                variant="body1"
-                sx={{
-                  color: "primary.main",
-                  py: 0,
-                  px: 1,
-                  display: "flex",
-                  justifyContent: "start",
-                  gap:0.5
-                }}
-              >
-                {feature.icon} {feature.text}
-              </Typography>
-            </Grid>
-          ))}
-        </Grid>
-
-        <Box>
+        <Box
+          id="outerContentBox"
+          sx={{
+            height: { md: "95vh" },
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
             
-         
-        </Box>
+          }}
+        >
+          <Box
+            id="contentBox"
+            sx={{
+              display: "flex",
+              gap: { md:5, smalllg:12, lg:8 },
+              flexDirection: { xs: "column", md: "row" },
+              width: "100%",
+              alignItems: "center",
+              
+            }}
+          >
+            <Box
+              id="imageBox"
+              sx={{
+                position: "relative",
+                my: { xs: 6, md: 0 },
+                pb: {xs:2, md:0},
+                width: { xs: "100%", md:'50%', smalllg: "50%" },
+                height: { xs:'300px', sm: "400px", md: "570px", smalllg:'660px', xxl: "800px" },
+                backgroundColor: "white",       
+                borderRadius:2,
+                border: "1px solid",
+                borderColor: "grey.300",
+                px:5,
 
-        <ShowPhoneNumber />
+              }}
+            >
+              <Image
+                src={item.Image}
+                fill
+                alt={`image of ${item.Description}`}
+                style={{ objectFit: "contain" }}
+              />
+            </Box>
+
+            <Box id="textBox" sx={{width: {sm:'100%', md:'50%' } }}>
+              <Grid
+                id="featureGrid"
+                container
+                spacing={4}
+                sx={{
+                  // Match image width
+                  mx: "auto", // Center horizontally
+                }}
+              >
+                {Object.entries(item).map(([key, value]) => {
+                  if (
+                    key !== "Feature" &&
+                    key !== "Image" &&
+                    key !== "Name" &&
+                    key !== "Description"
+                  ) {
+                    return (
+                      <>
+                        <Grid size={6} key={key}>
+                          <Typography variant="h4" sx={{textAlign:'center'}}>{key}</Typography>
+                        </Grid>
+
+                        {typeof value === "string" && (
+                          <Grid size={6}>
+                            <Typography
+                              variant="body1"
+                              sx={{ color: "primary.main", textAlign:'start' }}
+                            >
+                              {value}
+                            </Typography>
+                          </Grid>
+                        )}
+                      </>
+                    );
+                  } else {
+                    return null;
+                  }
+                })}
+              </Grid>
+
+              <Grid
+                id="featureGrid"
+                container
+                spacing={3}
+                sx={{
+                  // Match image width
+                  mx: "auto",
+                  pt: 4,
+                  pb:{xs:8, lg:6, xl:12},
+                }}
+              >
+                <Grid size={6}>
+                  <Typography variant="h4" sx={{ mb: 2, textAlign:'center' }}>
+                    Features
+                  </Typography>
+                </Grid>
+
+                <Grid size={6}>
+                  <Grid container spacing={2} sx={{ }}>
+                    {item.Feature.map((feature) => (
+                      // console.log(feature),
+                      <Grid size={12} key={feature.text} sx={{}}>
+                        <Stack
+                        id="featureStack"
+                          key={feature.text}
+                          direction="row"
+                          spacing={{ xs: 0.5, md:1.5, smalllg: 1 }}
+                          alignItems="center"
+                          justifyContent="start"
+                          color="primary.main"
+                        >
+                          {feature.icon}
+                          <Typography
+                            variant="body1"
+                            sx={{ color: "primary.main" }}
+                          >
+                            {feature.text}
+                          </Typography>
+                        </Stack>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Grid>
+              </Grid>
+
+              <Box id="positionButtonBox" sx={{width:'100%', display:'flex', justifyContent:'center'}}>
+                <ShowPhoneNumber />
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </>
   );

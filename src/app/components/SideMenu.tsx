@@ -91,6 +91,7 @@ export default function SideMenu({ open, toggle }: SideMenuProps) {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  // justifyContent: "center",
                   pb: 2,
                 }}
               >
@@ -106,10 +107,12 @@ export default function SideMenu({ open, toggle }: SideMenuProps) {
                     primary={item.text}
                     sx={{
                       color: "white",
+                      display: "flex",
                       ".MuiListItemText-primary": {
                         color: "white",
                         fontFamily: "notoSans.style.fontFamily",
                         fontWeight: 600,
+                        textAlign: 'center',
                       }, // This ensures the primary text is white
                     }}
                   />
